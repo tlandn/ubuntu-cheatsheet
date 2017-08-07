@@ -12,7 +12,7 @@ This covers a wide assortment of quick references for the terminal/command-line.
   - [Apt Lock Error](#apt-lock-error)
 - [Listing and Navigating](#listing-and-navigating)
 - [Users](#users)
-- [Environment/shell variables](#variables)
+- [Environment and shell variables](#environment-and-shell-variables)
 - [Groups](#groups)
 - [Permissions](#permissions)
     - [Easy Permissions](#easy-permissions)
@@ -239,7 +239,7 @@ who                 (show all logged in users)
 whoami              (show which user you are)
 ```
 
-# Environment/shell variables
+# Environment and shell variables
 ***
 [(Back to Top)](#table-of-contents)
 
