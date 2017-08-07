@@ -12,8 +12,8 @@ This covers a wide assortment of quick references for the terminal/command-line.
   - [Apt Lock Error](#apt-lock-error)
 - [Listing and Navigating](#listing-and-navigating)
 - [Users](#users)
-- [Groups](#groups)
 - [Environment/shell variables](#variables)
+- [Groups](#groups)
 - [Permissions](#permissions)
     - [Easy Permissions](#easy-permissions)
     - [Octal Permissions](#octal-permissions)
@@ -239,16 +239,16 @@ who                 (show all logged in users)
 whoami              (show which user you are)
 ```
 
-#variables
+# Environment/shell variables
 ***
 [(Back to Top)](#table-of-contents)
 
 To make modification to environment variable permanent, users must put below in ~/.profile
-'''
+```
 
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH=$PATH:/path/to/my/program
-'''
+```
 
 # Groups
 ***
