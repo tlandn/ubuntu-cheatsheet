@@ -13,6 +13,7 @@ This covers a wide assortment of quick references for the terminal/command-line.
 - [Listing and Navigating](#listing-and-navigating)
 - [Users](#users)
 - [Groups](#groups)
+- [Environment/shell variables](#variables)
 - [Permissions](#permissions)
     - [Easy Permissions](#easy-permissions)
     - [Octal Permissions](#octal-permissions)
@@ -63,7 +64,7 @@ This covers a wide assortment of quick references for the terminal/command-line.
     - [Connecting to a server](#connecting-to-a-server)
     - [SSH Permissions](#ssh-permissions)
     - [Using the Config](#using-the-config)
-    - [SSH to PEM](#ssh-to-pem) 
+    - [SSH to PEM](#ssh-to-pem)
 - [Firewall](#firewall)
     - [UFW Status](#ufw-status)
     - [UFW Enable/Disable](#ufw-enabledisable)
@@ -138,6 +139,7 @@ clear               (dlears the terminal)
 date                (current datetime)
 echo                (output to terminal)
 env                 (See environment variables)
+printenv            (See environment variables)
 hostname            (See your hostname)
 ```
 
@@ -237,6 +239,17 @@ who                 (show all logged in users)
 whoami              (show which user you are)
 ```
 
+#variables
+***
+[(Back to Top)](#table-of-contents)
+
+To make modification to environment variable permanent, users must put below in ~/.profile
+'''
+
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH=$PATH:/path/to/my/program
+'''
+
 # Groups
 ***
 [(Back to Top)](#table-of-contents)
@@ -266,7 +279,7 @@ There are two ways to manage permissions, one is by text the other is by an octa
 ; Change Mode
 ; Options: (O)wner (U)sers (G)roup or (A)ll
 ; File:    Owner: rwx, Group: rwx, User: rwx
-; Misc:    Besides rwx there is: 
+; Misc:    Besides rwx there is:
 ;          s = setuid of owner for old/new files
 
 ; Single File read/write permissions
@@ -286,11 +299,11 @@ chmod -R g+s files_or_folder
 
 ### Preserve Group Permissions
 A fantastic way to structure your users is within groups. A common example would be your `www-data` group.
-If I have a user `jesse`, I can add him with `sudo usermod -aG www-data jesse`. 
+If I have a user `jesse`, I can add him with `sudo usermod -aG www-data jesse`.
 
 After adding any users I would like, I want to have a folder where all the members of the `www-data` group
 can read/write a folder. If they are using git, I also want the permissions to stay the same, meaning if they
-pull the permissions will not change. 
+pull the permissions will not change.
 
 To accomplish this, here is an example:
 ```
@@ -422,7 +435,7 @@ Without a kernal you cannot do anything on linux.
 
 ### Remove Old Kernals
 
-See What version you are currently using 
+See What version you are currently using
 ```
 sudo uname -a
 ```
@@ -434,7 +447,7 @@ sudo dpkg --get-selections | grep linux
 
 The BYOBU is quite nice
 ```
-sudo apt install byobu 
+sudo apt install byobu
 sudo purge-old-kernels
 ```
 
@@ -500,18 +513,18 @@ sudo update-rc.d -f servicename remove
 
 ## Autostart Daemons
 
-There is are several startup popular daemons: 
-- CentOS uses SystemV 
+There is are several startup popular daemons:
+- CentOS uses SystemV
 - Ubuntu 14 uses Upstart
 - Ubuntu 14.10+ uses SystemD (15, 16, 17..)
 
-Focus on **SystemD**. 
+Focus on **SystemD**.
 
 ## SystemD Commands
 This would only apply to Ubuntu 14.10+, otherwise you would use Upstart.
 
 ```
-systemctl     <-- You'll use this more often 
+systemctl     <-- You'll use this more often
 journalctl    <-- You'll use this more often
 update-rc.d   <-- You'll use this more often
                   --------------------------
@@ -522,11 +535,11 @@ update-rc.d   <-- You'll use this more often
                   ----------------------------------------------------
                   The Location is: /etc/rcrunlevel.d/NNname  
                   The Target is:   /etc/init.d/name.
-notify 
-analyze 
-cgis 
-cgtop 
-loginctl 
+notify
+analyze
+cgis
+cgtop
+loginctl
 nspawn
 ```
 
@@ -1018,7 +1031,7 @@ Put Examples here, like phones, names, etc..
 [(Back to Top)](#table-of-contents)
 
 - `-u` is for User (default: root)
-- `-p` is for Password 
+- `-p` is for Password
 - `-p password` is for password which skips the prompt (not recommended)
 - `-h` is for host (default: localhost)
 - `-port or -P` is for a port, default is 3306
@@ -1083,7 +1096,7 @@ Here is how you can import with the one liner:
 mysql -u root -p DATABASE_NAME | tar -xzOf output.sql.tar.gz
 mysql -u root -p DATABASE_NAME | gunzip < output.sql.gz
 ```
- 
+
 ### Get Database Encoding
 ```
 USE DATABASE_NAME;
@@ -1091,7 +1104,7 @@ SELECT @@collation_database;
 ```
 ### Get Table Encoding
 ```
-SELECT default_character_set_name FROM information_schema.SCHEMATA 
+SELECT default_character_set_name FROM information_schema.SCHEMATA
 WHERE schema_name = "TABLE_NAME";
 ```
 
@@ -1362,7 +1375,7 @@ docker push boyus
 
 Linux has a lot of GUI's and you are not limited to what you get. I'll list a few popular ones with the installation instructions in Ubuntu. You can have as many GUI options as you like, just change the default at the login screen.
 
-> Tip: After you install, logout and in the login menu or the top right you can select what GUI you want to login with. Whenever you install a new GUI you can select a Display Manager, I recommend using `lightdm`. 
+> Tip: After you install, logout and in the login menu or the top right you can select what GUI you want to login with. Whenever you install a new GUI you can select a Display Manager, I recommend using `lightdm`.
 
 --
 
@@ -1382,7 +1395,7 @@ Installed in Ubuntu 12+ by Default (`ubuntu-desktop`)
 ; Install:
 sudo apt-get install xubuntu-desktop
 
-; Remove: 
+; Remove:
 sudo apt-get remove xubuntu-desktop
 ```
 
@@ -1394,7 +1407,7 @@ sudo apt-get remove xubuntu-desktop
 ; Install:
 sudo add-apt-repository ppa:moorkai/cinnamon
 sudo apt-get update && sudo apt-get install cinnamon
-    
+
 ; Remove
 sudo ppa-purge ppa:moorkai/cinnamon
 ```
@@ -1410,12 +1423,12 @@ This has been one of the all time most popular GUI's for Linux ever made, in par
 ; Install:
 sudo apt-get install ubuntu-gnome-desktop    (For legacy gnome use you can use gnome-shell, this install both)
 
-; Remove: 
+; Remove:
 sudo apt-get remove ubuntu-gnome-desktop     (Removes gnome-shell as well)
 ```
 
-> Gnome3 has been my favorite GUI due to how I can customize it. However, for unknown reasons I have issues running only Gnome3 in VMWare Workstation 11. It works fine as a complete install. 
- 
+> Gnome3 has been my favorite GUI due to how I can customize it. However, for unknown reasons I have issues running only Gnome3 in VMWare Workstation 11. It works fine as a complete install.
+
 Noteworthy: Visit [Gnome Shell Extensions](https://extensions.gnome.org/) to customize anything you want. Make sure to use Firefox.
 
 
@@ -1430,8 +1443,8 @@ This is a very popular GUI for people that are used to Windows Desktops.
 sudo add-apt-repository ppa:kubuntu-ppa/backports
 sudo apt-get update && sudo apt-get dist-upgrade
 sudo apt-get install kubuntu-desktop
-    
-; Remove: 
+
+; Remove:
 sudo apt-get remove kubuntu-desktop
 ```
 
@@ -1442,13 +1455,13 @@ sudo apt-get remove kubuntu-desktop
 ```
 ; Install:
 sudo apt-get install lxqt
-; Remove: 
+; Remove:
 sudo apt-get remove lxqt
 ```
 
 ### Pantheon (ElementaryOS)
 
-[**Elementary OS Website**](https://elementary.io/) 
+[**Elementary OS Website**](https://elementary.io/)
 
 For the best stability I use Elementary OS which is based off of Ubuntu.
 
@@ -1458,7 +1471,7 @@ sudo add-apt-repository ppa:elementary-os/stable
 sudo apt-get update
 sudo apt-get install elementary-desktop
 
-; Remove: 
+; Remove:
 sudo apt-get remove elementary-desktop
 ```
 
@@ -1470,7 +1483,7 @@ sudo apt-get remove elementary-desktop
 ; Install:
 sudo apt-get install xfce4
 
-; Remove: 
+; Remove:
 sudo apt-get remove xfce4
 ```
 
@@ -1481,7 +1494,7 @@ sudo apt-get remove xfce4
 Sometimes the system has problems, seldmoly but I'll list things that helped me fix rare occasions.
 
 ### Ubuntu Infinite Login
-When you try to login to Ubuntu and it relogs you back into the login screen, this is an infinite loop. The only way I was able to fix it depsite all the guides was combining a few of these together for Ubuntu 16.04. 
+When you try to login to Ubuntu and it relogs you back into the login screen, this is an infinite loop. The only way I was able to fix it depsite all the guides was combining a few of these together for Ubuntu 16.04.
 
 If you are using Gnome as I do, I would jump down to the **Apt Auto Remove Problem** in the list.
 
@@ -1521,7 +1534,7 @@ Next, Login as your user who must be able to run `sudo`.
     - I was able to get Gnome-Classic working but not Gnome.
 - **How to Ensure it Works**
   - You might be able to login after one of the steps above if you don't reboot. However, to be certain, you want to reboot to ensure it is fixed, otherwise you'll be doing this over and over.    
-    
+
 # Linux Facts
 ***
 [(Back to Top)](#table-of-contents)
