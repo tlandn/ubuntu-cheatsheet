@@ -191,6 +191,10 @@ If you get an error such as `Unable to lock the administration directory (/var/l
 
 
 # Archive and compression
+***
+[(Back to Top)](#table-of-contents)
+
+```
 Uncompressing 7zip files:
 - 7za e myfiles.7z
 Zipping files into 7zip format:
@@ -207,12 +211,16 @@ Create a tar gzipped archive
 z - Compress in gzip format:
 - tar cvzf archive_name.tar.gz dirname/
 NOTE: .tgz is same as .tar.gz
+```
 
+# DEB files
+***
+[(Back to Top)](#table-of-contents)
 
-#DEB files
-Install .DEB files
+```
+Install DEB files:
 - dpkg -i /my/deb/file.deb
-
+```
 
 # Listing and Navigating
 ***
