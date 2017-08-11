@@ -11,6 +11,7 @@ This covers a wide assortment of quick references for the terminal/command-line.
   - [Apt Remove](#apt-remove)
   - [Apt Lock Error](#apt-lock-error)
 - [Archive and compression](#archive-and-compression)
+- [DEB files](#deb-files)
 - [Listing and Navigating](#listing-and-navigating)
 - [Users](#users)
 - [Environment and shell variables](#environment-and-shell-variables)
@@ -206,6 +207,11 @@ Create a tar gzipped archive
 z - Compress in gzip format:
 - tar cvzf archive_name.tar.gz dirname/
 NOTE: .tgz is same as .tar.gz
+
+
+#DEB files
+Install .DEB files
+- dpkg -i /my/deb/file.deb
 
 
 # Listing and Navigating
